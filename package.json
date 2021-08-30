@@ -1,0 +1,15 @@
+{
+	"name": "website_backend",
+	"version": "1.0.0",
+	"description": "Frontend & Backend for dotOS.",
+	"author": "ririxidev <ririxi@droidontime.com>",
+	"license": "GPL-3.0",
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"build": "yarn workspaces foreach run build",
+		"start": "yarn workspaces foreach run start"
+	},
+	"private": true
+}

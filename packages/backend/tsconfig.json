@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"target": "ESNEXT",
+		"module": "commonjs",
+		"outDir": "dist",
+		"rootDir": "src",
+		"strict": true,
+		"moduleResolution": "node",
+		"baseUrl": "src",
+		"paths": {
+			"@/util/*": ["server/util/*"],
+			"@/controllers/*": ["server/controllers/*"],
+			"@/middlewares/*": ["server/middlewares/*"],
+			"@/interfaces/*": ["server/interfaces/*"],
+			"@/routes/api/*": ["server/routes/api/*"],
+			"@/models/*": ["server/database/models/*"],
+			"@/routes/website/*": ["server/routes/website/*"]
+		},
+		"typeRoots": ["@types"],
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true
+	},
+	"include": ["src/*", "@types/*", "@types/backend/index.d.ts"]
+}

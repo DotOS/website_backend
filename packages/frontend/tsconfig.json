@@ -1,0 +1,30 @@
+{
+	"compilerOptions": {
+		"target": "ESNEXT",
+		"module": "commonjs",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"jsx": "preserve",
+		"outDir": "dist",
+		"rootDir": "src",
+		"strict": true,
+		"moduleResolution": "node",
+		"baseUrl": "./src",
+		"paths": {
+			"@/components/*": ["components/*"],
+			"@/styles/*": ["styles/*"],
+			"@/config/*": ["config/*"],
+			"@/util/*": ["util/*"],
+			"@/hooks/*": ["hooks/*"]
+		},
+		"typeRoots": ["@types"],
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowJs": false,
+		"skipLibCheck": true,
+		"noEmit": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true
+	},
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules"]
+}
