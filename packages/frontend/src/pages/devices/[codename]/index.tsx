@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Script from "next/script";
 import useSWR from "swr";
 
 import AutoCompleteSection from "@/components/content/devices/autoCompleteSection";
@@ -69,6 +70,11 @@ const DeviceSpecificPage = () => {
 				{data ? <DeviceSection deviceInfo={data as Device} /> : null}
 			</div>
 			<FooterLayout />
+			<script
+				async
+				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7766514239546616"
+				crossOrigin="anonymous"
+			></script>
 		</HeadLayout>
 	) : (
 		<LoadingPage />

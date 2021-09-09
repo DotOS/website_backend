@@ -41,6 +41,11 @@ const StatsPage = () => {
 			{data ? <CountrySelection statistics={data} /> : null}
 			<FooterLayout />
 			<Script src="/assets/js/stats/index.js" strategy="afterInteractive" />
+			<script
+				async
+				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7766514239546616"
+				crossOrigin="anonymous"
+			></script>
 		</HeadLayout>
 	);
 };

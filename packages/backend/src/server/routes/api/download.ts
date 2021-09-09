@@ -57,7 +57,6 @@ export default class downloadRoute {
 						return res.redirect(file.browser_download_url);
 					}
 					break;
-
 				case "gapps":
 					{
 						const file = response.data.assets.find(asset =>
@@ -68,7 +67,28 @@ export default class downloadRoute {
 						return res.redirect(file.browser_download_url);
 					}
 					break;
+				case "boot":
+					{
+						const file = response.data.assets.find(
+							asset =>
+								asset.name.includes("boot") && asset.name.includes(".img")
+						);
+						if (!file) return notFound();
 
+						return res.redirect(file.browser_download_url);
+					}
+					break;
+				case "recovery":
+					{
+						const file = response.data.assets.find(
+							asset =>
+								asset.name.includes("recovery") && asset.name.includes(".img")
+						);
+						if (!file) return notFound();
+
+						return res.redirect(file.browser_download_url);
+					}
+					break;
 				default:
 					{
 						return notFound();

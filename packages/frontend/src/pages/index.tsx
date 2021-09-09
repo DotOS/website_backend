@@ -8,6 +8,7 @@ import AnnouncementLayout from "@/components/layout/announcement";
 import FooterLayout from "@/components/layout/footer";
 import HeadLayout from "@/components/layout/head";
 import NavbarLayout from "@/components/layout/navbar";
+import { Adsense } from "@ctrl/react-adsense";
 
 const IndexPage = () => (
 	<HeadLayout title="dotOS | HomePage">
@@ -94,6 +95,11 @@ const IndexPage = () => (
 		<FaqSection />
 		<DonateSection />
 		<FooterLayout />
+		<script
+			async
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7766514239546616"
+			crossOrigin="anonymous"
+		></script>
 	</HeadLayout>
 );
 

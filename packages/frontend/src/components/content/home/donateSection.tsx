@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const DonateSection = () => (
 	<>
 		<div className="grid bg-white h-full mt-10">
@@ -51,10 +53,9 @@ const DonateSection = () => (
 						"
 					>
 						Do you like our project? Support us by
-						<a href="/donate" className="text-xl font-semibold text-blue-500">
-							{" "}
-							donating
-						</a>
+						<Link href="/donate">
+							<a className="text-xl font-semibold text-blue-500"> donating</a>
+						</Link>
 					</p>
 				</div>
 			</div>
