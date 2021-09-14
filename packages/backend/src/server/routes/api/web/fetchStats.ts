@@ -45,20 +45,21 @@ export default class fetchStatsRoute {
 			case "github":
 				{
 					const MyOctokit = Octokit.plugin(restEndpointMethods),
-						octokit = new MyOctokit(),
+						octokit = new MyOctokit({ auth: process.env.GH_TOKEN }),
 						apiURL = (req.query.fileName as string).split("/"),
 						deviceData = await getFile("devices", `${apiURL[5]}.json`);
 					try {
 						const response = await octokit.rest.repos.getReleaseByTag({
-							owner: "dotOS-devices",
-							repo: `device_${deviceData.brandName.toLowerCase()}_${deviceData.codename.toLowerCase()}`,
+							owner: "dotOS-downloads",
+							repo: deviceData.codename.toLowerCase(),
 							tag: apiURL[6] === "latest" ? deviceData.latestVersion : apiURL[6]
 						});
 
-						const file = response.data.assets.find(asset =>
-							asset.name.includes(
-								apiURL[7] === "vanilla" ? "OFFICIAL" : "GAPPS"
-							)
+						const file = response.data.assets.find(
+							asset =>
+								asset.name.includes(
+									apiURL[7] === "vanilla" ? "OFFICIAL" : "GAPPS"
+								) && asset.name.includes(".zip")
 						);
 
 						if (!file) {

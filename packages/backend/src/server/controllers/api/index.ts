@@ -41,6 +41,6 @@ export default class APIController implements Controller {
 			.get("/ota/:codename/releases/:releaseType?", otaDeviceRouter.releases)
 			.get("/ota/:codename/maintainer", otaDeviceRouter.maintainerInfo)
 			.get("/ota/:codename/changelog", otaDeviceRouter.deviceChangelog)
-			.get("/download/:codename/:version/:type", downloadRouter.index);
+			.get("/download/:codename/:version/:type/:image?", downloadRouter.index);
 	}
 }

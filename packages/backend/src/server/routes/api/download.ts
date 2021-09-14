@@ -28,7 +28,7 @@ export default class downloadRoute {
 
 		const codename = req.params.codename,
 			MyOctokit = Octokit.plugin(restEndpointMethods),
-			octokit = new MyOctokit(),
+			octokit = new MyOctokit({ auth: process.env.GH_TOKEN }),
 			deviceData = await getFile("devices", `${codename}.json`);
 
 		if (req.params.version === "latest") {
@@ -49,44 +49,82 @@ export default class downloadRoute {
 			switch (req.params.type) {
 				case "vanilla":
 					{
-						const file = response.data.assets.find(asset =>
-							asset.name.includes("OFFICIAL")
+						const file = response.data.assets.find(
+							asset =>
+								asset.name.includes("OFFICIAL") && asset.name.includes(".zip")
 						);
 						if (!file) return notFound();
 
-						return res.redirect(file.browser_download_url);
+						if (req.params.image) {
+							switch (req.params.image) {
+								case "boot":
+									{
+										const file = response.data.assets.find(
+											asset =>
+												asset.name.includes("boot") &&
+												asset.name.includes("OFFICIAL") &&
+												asset.name.includes(".img")
+										);
+										if (!file) return notFound();
+
+										return res.redirect(file.browser_download_url);
+									}
+									break;
+								case "recovery":
+									{
+										const file = response.data.assets.find(
+											asset =>
+												asset.name.includes("recovery") &&
+												asset.name.includes("OFFICIAL") &&
+												asset.name.includes(".img")
+										);
+										if (!file) return notFound();
+
+										return res.redirect(file.browser_download_url);
+									}
+									break;
+							}
+						} else return res.redirect(file.browser_download_url);
 					}
 					break;
 				case "gapps":
 					{
-						const file = response.data.assets.find(asset =>
-							asset.name.includes("GAPPS")
-						);
-						if (!file) return notFound();
-
-						return res.redirect(file.browser_download_url);
-					}
-					break;
-				case "boot":
-					{
 						const file = response.data.assets.find(
 							asset =>
-								asset.name.includes("boot") && asset.name.includes(".img")
+								asset.name.includes("GAPPS") && asset.name.includes(".zip")
 						);
 						if (!file) return notFound();
 
-						return res.redirect(file.browser_download_url);
-					}
-					break;
-				case "recovery":
-					{
-						const file = response.data.assets.find(
-							asset =>
-								asset.name.includes("recovery") && asset.name.includes(".img")
-						);
-						if (!file) return notFound();
+						if (req.params.image) {
+							switch (req.params.image) {
+								case "boot":
+									{
+										const file = response.data.assets.find(
+											asset =>
+												asset.name.includes("boot") &&
+												asset.name.includes("GAPPS") &&
+												asset.name.includes(".img")
+										);
+										if (!file) return notFound();
 
-						return res.redirect(file.browser_download_url);
+										return res.redirect(file.browser_download_url);
+									}
+									break;
+								case "recovery":
+									{
+										const file = response.data.assets.find(
+											asset =>
+												asset.name.includes("recovery") &&
+												asset.name.includes("GAPPS") &&
+												asset.name.includes(".img")
+										);
+										if (!file) return notFound();
+
+										return res.redirect(file.browser_download_url);
+									}
+									break;
+							}
+						} else return res.redirect(file.browser_download_url);
 					}
 					break;
 				default:
