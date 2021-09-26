@@ -26,7 +26,7 @@ const DonatePage = () => (
 		<FooterLayout />
 		<script
 			async
-			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7766514239546616"
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub5-776651423946616"
 			crossOrigin="anonymous"
 		></script>
 	</HeadLayout>

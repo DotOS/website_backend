@@ -9,6 +9,7 @@ import NoDeviceFound from "@/components/content/devices/noDeviceFound";
 import FailedSection from "@/components/content/failedSection";
 import AnnouncementLayout from "@/components/layout/announcement";
 import FooterLayout from "@/components/layout/footer";
+import GAdsense from "@/components/layout/gadsense";
 import HeadLayout from "@/components/layout/head";
 import LoadingPage from "@/components/layout/loading";
 import NavbarLayout from "@/components/layout/navbar";
@@ -55,6 +56,7 @@ const DeviceSpecificPage = () => {
 					</span>
 				</h3>
 			</div>
+			<GAdsense />
 			{pingData ? <AutoCompleteSection /> : null}
 			<div
 				className={`${pingData ? "flex flex-col" : ""} p-4
@@ -69,6 +71,7 @@ const DeviceSpecificPage = () => {
 				{pingData ? <ListSection /> : <FailedSection page={true} />}
 				{data ? <DeviceSection deviceInfo={data as Device} /> : null}
 			</div>
+			<GAdsense />
 			<FooterLayout />
 			<script
 				async

@@ -7,6 +7,7 @@ import ListSection from "@/components/content/devices/listSection";
 import FailedSection from "@/components/content/failedSection";
 import AnnouncementLayout from "@/components/layout/announcement";
 import FooterLayout from "@/components/layout/footer";
+import GAdsense from "@/components/layout/gadsense";
 import HeadLayout from "@/components/layout/head";
 import NavbarLayout from "@/components/layout/navbar";
 import { fetcher } from "@/config/fetcher";
@@ -40,6 +41,7 @@ const IndexPage = () => {
 					<span className="text-blue-500">dotOS downloads</span>
 				</h3>
 			</div>
+			<GAdsense />
 			{data ? <AutoCompleteSection /> : null}
 			<div
 				className={`${data ? "flex flex-col" : ""} p-4
@@ -53,6 +55,7 @@ const IndexPage = () => {
 			>
 				{data ? <ListSection /> : <FailedSection page={true} />}
 				{data ? <InfoSection /> : null}
+				<GAdsense />
 			</div>
 			<Script src="/assets/js/devices/index.js" />
 			<FooterLayout />

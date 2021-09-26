@@ -6,6 +6,7 @@ import TeamSection from "@/components/content/home/teamSection";
 import WelcomeSection from "@/components/content/home/welcomeSection";
 import AnnouncementLayout from "@/components/layout/announcement";
 import FooterLayout from "@/components/layout/footer";
+import GAdsense from "@/components/layout/gadsense";
 import HeadLayout from "@/components/layout/head";
 import NavbarLayout from "@/components/layout/navbar";
 import { Adsense } from "@ctrl/react-adsense";
@@ -89,11 +90,13 @@ const IndexPage = () => (
 		>
 			<WelcomeSection />
 		</div>
+		<GAdsense />
 		<FeaturesSection />
 		<AboutSection />
 		<TeamSection />
 		<FaqSection />
 		<DonateSection />
+		<GAdsense />
 		<FooterLayout />
 		<script
 			async

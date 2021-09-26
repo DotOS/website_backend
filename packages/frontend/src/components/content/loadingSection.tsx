@@ -13,7 +13,7 @@ const LoadingSection = () => (
 			style={{ marginBottom: "50px" }}
 		>
 			<br />
-			Loading...
+			Loading this just for you...
 		</p>
 	</div>
 );

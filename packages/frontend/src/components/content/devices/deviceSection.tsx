@@ -115,10 +115,13 @@ const DeviceSection = (props: { deviceInfo: Device }) => {
 						>
 							XDA Thread
 						</a>
-					) : null}{" "}
+					) : null}
+					{props.deviceInfo.links.xda && props.deviceInfo.links.telegram
+						? ", "
+						: " "}
 					{props.deviceInfo.links.telegram ? (
 						<a
-							href={props.deviceInfo.links.xda as string}
+							href={props.deviceInfo.links.telegram as string}
 							className="text-sm md:text-md font-normal text-blue-500"
 						>
 							Telegram
@@ -180,9 +183,9 @@ const DeviceSection = (props: { deviceInfo: Device }) => {
 			)}
 			{/* Vanilla Section */}
 
-			{/*<!-- Gapps Section -->*/}
+			{/* Gapps Section */}
 			{gappsDetails ? <GappsSection gappsDetails={gappsDetails} /> : null}
-			{/*<!-- Gapps Section -->*/}
+			{/* Gapps Section */}
 			<br />
 			<br />
 		</div>
