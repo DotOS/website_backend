@@ -41,6 +41,7 @@ const StatsPage = () => {
 			<GAdsense />
 			{data ? <DeviceSection statistics={data} /> : <LoadingSection />}
 			{data ? <CountrySelection statistics={data} /> : null}
+			<GAdsense />
 			<FooterLayout />
 			<Script src="/assets/js/stats/index.js" strategy="afterInteractive" />
 			<script

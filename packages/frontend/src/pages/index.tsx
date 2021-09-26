@@ -94,6 +94,7 @@ const IndexPage = () => (
 		<FeaturesSection />
 		<AboutSection />
 		<TeamSection />
+		<GAdsense />
 		<FaqSection />
 		<DonateSection />
 		<GAdsense />

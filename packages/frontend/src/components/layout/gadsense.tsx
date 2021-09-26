@@ -24,7 +24,7 @@ const GAdsense = ({ position = "horizontal" }: Props) => {
 			{position === "horizontal" ? (
 				<ins
 					className="adsbygoogle"
-					style={{ display: "block" }}
+					style={{ display: "block", width: "100% !important" }}
 					data-ad-client="ca-pub-7766514239546616"
 					data-ad-slot="5281788940"
 					data-ad-format="auto"
@@ -33,7 +33,7 @@ const GAdsense = ({ position = "horizontal" }: Props) => {
 			) : (
 				<ins
 					className="adsbygoogle"
-					style={{ display: "block" }}
+					style={{ display: "block", width: "100% !important" }}
 					data-ad-client="ca-pub-7766514239546616"
 					data-ad-slot="3421861451"
 					data-ad-format="auto"

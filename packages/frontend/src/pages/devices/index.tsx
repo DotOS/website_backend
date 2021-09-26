@@ -55,8 +55,8 @@ const IndexPage = () => {
 			>
 				{data ? <ListSection /> : <FailedSection page={true} />}
 				{data ? <InfoSection /> : null}
-				<GAdsense />
 			</div>
+			<GAdsense />
 			<Script src="/assets/js/devices/index.js" />
 			<FooterLayout />
 			<script
