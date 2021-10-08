@@ -46,6 +46,9 @@ export default class downloadRoute {
 			if (req.query.debug === "dev" && process.env.NODE_ENV === "development")
 				return res.json(response).end();
 
+			if (response.status !== 200)
+				return res.json({ success: false, error: "Ratelimit exceeded." }).end();
+
 			switch (req.params.type) {
 				case "vanilla":
 					{
@@ -55,36 +58,37 @@ export default class downloadRoute {
 						);
 						if (!file) return notFound();
 
-						if (req.params.image) {
-							switch (req.params.image) {
-								case "boot":
-									{
-										const file = response.data.assets.find(
-											asset =>
-												asset.name.includes("boot") &&
-												asset.name.includes("OFFICIAL") &&
-												asset.name.includes(".img")
-										);
-										if (!file) return notFound();
+						if (!req.params.image)
+							return res.redirect(file.browser_download_url);
 
-										return res.redirect(file.browser_download_url);
-									}
-									break;
-								case "recovery":
-									{
-										const file = response.data.assets.find(
-											asset =>
-												asset.name.includes("recovery") &&
-												asset.name.includes("OFFICIAL") &&
-												asset.name.includes(".img")
-										);
-										if (!file) return notFound();
+						switch (req.params.image) {
+							case "boot":
+								{
+									const file = response.data.assets.find(
+										asset =>
+											asset.name.includes("boot") &&
+											asset.name.includes("OFFICIAL") &&
+											asset.name.includes(".img")
+									);
+									if (!file) return notFound();
 
-										return res.redirect(file.browser_download_url);
-									}
-									break;
-							}
-						} else return res.redirect(file.browser_download_url);
+									return res.redirect(file.browser_download_url);
+								}
+								break;
+							case "recovery":
+								{
+									const file = response.data.assets.find(
+										asset =>
+											asset.name.includes("recovery") &&
+											asset.name.includes("OFFICIAL") &&
+											asset.name.includes(".img")
+									);
+									if (!file) return notFound();
+
+									return res.redirect(file.browser_download_url);
+								}
+								break;
+						}
 					}
 					break;
 				case "gapps":
@@ -95,36 +99,37 @@ export default class downloadRoute {
 						);
 						if (!file) return notFound();
 
-						if (req.params.image) {
-							switch (req.params.image) {
-								case "boot":
-									{
-										const file = response.data.assets.find(
-											asset =>
-												asset.name.includes("boot") &&
-												asset.name.includes("GAPPS") &&
-												asset.name.includes(".img")
-										);
-										if (!file) return notFound();
+						if (!req.params.image)
+							return res.redirect(file.browser_download_url);
 
-										return res.redirect(file.browser_download_url);
-									}
-									break;
-								case "recovery":
-									{
-										const file = response.data.assets.find(
-											asset =>
-												asset.name.includes("recovery") &&
-												asset.name.includes("GAPPS") &&
-												asset.name.includes(".img")
-										);
-										if (!file) return notFound();
+						switch (req.params.image) {
+							case "boot":
+								{
+									const file = response.data.assets.find(
+										asset =>
+											asset.name.includes("boot") &&
+											asset.name.includes("GAPPS") &&
+											asset.name.includes(".img")
+									);
+									if (!file) return notFound();
 
-										return res.redirect(file.browser_download_url);
-									}
-									break;
-							}
-						} else return res.redirect(file.browser_download_url);
+									return res.redirect(file.browser_download_url);
+								}
+								break;
+							case "recovery":
+								{
+									const file = response.data.assets.find(
+										asset =>
+											asset.name.includes("recovery") &&
+											asset.name.includes("GAPPS") &&
+											asset.name.includes(".img")
+									);
+									if (!file) return notFound();
+
+									return res.redirect(file.browser_download_url);
+								}
+								break;
+						}
 					}
 					break;
 				default:

@@ -7,9 +7,10 @@ import DeviceSection from "@/components/content/devices/deviceSection";
 import ListSection from "@/components/content/devices/listSection";
 import NoDeviceFound from "@/components/content/devices/noDeviceFound";
 import FailedSection from "@/components/content/failedSection";
+import LoadingSection from "@/components/content/loadingSection";
 import AnnouncementLayout from "@/components/layout/announcement";
 import FooterLayout from "@/components/layout/footer";
-import GAdsense from "@/components/layout/gadsense";
+import GAdsense from "@/components/layout/gAdsenseBanner";
 import HeadLayout from "@/components/layout/head";
 import LoadingPage from "@/components/layout/loading";
 import NavbarLayout from "@/components/layout/navbar";
@@ -25,7 +26,7 @@ const DeviceSpecificPage = () => {
 
 	const pingData = useSWR(`${API_URL}/api/ping`, fetcher).data,
 		{ data } = useSWR<Device | ErrorJSON>(
-			codeName ? `${API_URL}/api/ota/${codeName}` : null,
+			typeof codeName !== "undefined" ? `${API_URL}/api/ota/${codeName}` : null,
 			fetcher
 		);
 
@@ -68,7 +69,13 @@ const DeviceSpecificPage = () => {
 				lg:flex-row
 				mb-20`}
 			>
-				{pingData ? <ListSection /> : <FailedSection page={true} />}
+				{pingData ? (
+					<ListSection />
+				) : typeof codeName === "undefined" ? (
+					<FailedSection page={true} />
+				) : (
+					<LoadingSection />
+				)}
 				{data ? <DeviceSection deviceInfo={data as Device} /> : null}
 			</div>
 			<GAdsense />

@@ -1,3 +1,4 @@
+import compareVersions from "compare-versions";
 import { Request, Response } from "express";
 
 import { getFile } from "@/util/getFile";
@@ -89,7 +90,15 @@ export default class otaDeviceRoute {
 						codename: deviceReleases.codename,
 						deviceName: deviceReleases.deviceName,
 						brandName: deviceReleases.brandName,
-						releases: gappsReleases.length !== 0 ? gappsReleases : null
+						releases:
+							gappsReleases.length !== 0
+								? gappsReleases.sort((a, b) => {
+										if (compareVersions(a.version, b.version) === 1) return -1;
+										else if (compareVersions(a.version, b.version) === -1)
+											return 1;
+										else return 0;
+								  })
+								: null
 					};
 
 					return res.json(returnJSON).end();
@@ -142,7 +151,15 @@ export default class otaDeviceRoute {
 						codename: deviceReleases.codename,
 						deviceName: deviceReleases.deviceName,
 						brandName: deviceReleases.brandName,
-						releases: vanillaReleases.length !== 0 ? vanillaReleases : null
+						releases:
+							vanillaReleases.length !== 0
+								? vanillaReleases.sort((a, b) => {
+										if (compareVersions(a.version, b.version) === 1) return -1;
+										else if (compareVersions(a.version, b.version) === -1)
+											return 1;
+										else return 0;
+								  })
+								: null
 					};
 
 					return res.json(returnJSON).end();

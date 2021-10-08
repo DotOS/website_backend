@@ -8,7 +8,7 @@ import DeviceSection from "@/components/content/stats/deviceSection";
 import HeaderSection from "@/components/content/stats/headerSection";
 import AnnouncementLayout from "@/components/layout/announcement";
 import FooterLayout from "@/components/layout/footer";
-import GAdsense from "@/components/layout/gadsense";
+import GAdsense from "@/components/layout/gAdsenseBanner";
 import HeadLayout from "@/components/layout/head";
 import NavbarLayout from "@/components/layout/navbar";
 import { fetcher } from "@/config/fetcher";

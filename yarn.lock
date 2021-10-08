@@ -101,6 +101,7 @@ __metadata:
     "@types/node": ^15.14.0
     "@types/response-time": ^2.3.4
     "@types/vhost": ^3.0.2
+    compare-versions: ^3.6.0
     cookie-parser: ^1.4.5
     cors: ^2.8.5
     csurf: ^1.11.0
