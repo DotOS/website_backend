@@ -44,7 +44,7 @@ const FaqSection = () => {
 						Frequently asked questions
 					</h1>
 					<p className="md:mx-16 lg:mx-16 py-4">
-						Find <span className="text-blue-500 font-bold">answer</span> for
+						Find <span className="text-blue-500 font-bold">answers</span> for
 						most asked questions
 					</p>
 				</div>

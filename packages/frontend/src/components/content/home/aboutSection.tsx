@@ -37,7 +37,7 @@ const AboutSection = () => (
 					to provide Unique user interface and Optimum performance that too
 					keeping in mind the balance between performance and battery life.
 					dotOS is based on Google's Android Open Source Project with
-					Hand-picked goodies, innovative ideas and creative things which are
+					Hand-picked goodies, innovative ideas and creative things that are
 					added in the rom to enhance user experience!
 				</p>
 			</div>
