@@ -13,10 +13,7 @@ sleep(800).then(() => {
 						location.hostname === "localhost"
 							? "http://localhost:3030"
 							: "https://api.droidontime.com";
-				source =
-					el.textContent.includes(".zip") || el.textContent.includes(".xz")
-						? "sourceforge"
-						: "github";
+				source = el.textContent.includes(".zip") ? "sourceforge" : "github";
 
 				el.innerHTML = `${svgElement}\n Loading statistics...`;
 				const response = await fetch(
@@ -29,11 +26,17 @@ sleep(800).then(() => {
 							method: "GET",
 							headers: { "Content-Type": "application/json" }
 						}
-					),
+					).catch(err => {
+						el.innerHTML = `${svgElement}\n Can't load statistics...`;
+					}),
 					resp = await response.json();
 
 				if (response.status !== 200) el.innerHTML = `${svgElement}\n 0`;
-				el.innerHTML = `${svgElement}\n ${resp.downloadCount}`;
+				el.innerHTML = `${svgElement}\n ${
+					resp.downloadCount === undefined
+						? "Can't load statistics..."
+						: resp.downloadCount
+				}`;
 			} catch (err) {
 				console.log(err);
 				el.innerHTML = `${svgElement}\n Can't load statistics...`;
