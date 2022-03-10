@@ -1,15 +1,14 @@
 import AboutSection from "@/components/content/home/aboutSection";
+import AnnouncementLayout from "@/components/layout/announcement";
 import DonateSection from "@/components/content/home/donateSection";
 import FaqSection from "@/components/content/home/faqSection";
 import FeaturesSection from "@/components/content/home/featuresSection";
-import TeamSection from "@/components/content/home/teamSection";
-import WelcomeSection from "@/components/content/home/welcomeSection";
-import AnnouncementLayout from "@/components/layout/announcement";
 import FooterLayout from "@/components/layout/footer";
 import GAdsense from "@/components/layout/gAdsenseBanner";
 import HeadLayout from "@/components/layout/head";
 import NavbarLayout from "@/components/layout/navbar";
-import { Adsense } from "@ctrl/react-adsense";
+import TeamSection from "@/components/content/home/teamSection";
+import WelcomeSection from "@/components/content/home/welcomeSection";
 
 const IndexPage = () => (
 	<HeadLayout title="dotOS | HomePage">
@@ -90,20 +89,12 @@ const IndexPage = () => (
 		>
 			<WelcomeSection />
 		</div>
-		<GAdsense />
 		<FeaturesSection />
 		<AboutSection />
 		<TeamSection />
-		<GAdsense />
 		<FaqSection />
 		<DonateSection />
-		<GAdsense />
 		<FooterLayout />
-		<script
-			async
-			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7766514239546616"
-			crossOrigin="anonymous"
-		></script>
 	</HeadLayout>
 );
 

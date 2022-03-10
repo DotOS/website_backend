@@ -55,7 +55,6 @@ const DeviceSpecificPage = () => {
 					</span>
 				</h3>
 			</div>
-			<GAdsense />
 			{pingData ? <AutoCompleteSection /> : null}
 			<div
 				className={`${pingData ? "flex flex-col" : ""} p-4
@@ -76,13 +75,7 @@ const DeviceSpecificPage = () => {
 				)}
 				{data ? <DeviceSection deviceInfo={data as Device} /> : null}
 			</div>
-			<GAdsense />
 			<FooterLayout />
-			<script
-				async
-				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7766514239546616"
-				crossOrigin="anonymous"
-			></script>
 		</HeadLayout>
 	) : (
 		<LoadingPage />

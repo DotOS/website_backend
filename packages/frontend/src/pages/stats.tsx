@@ -1,18 +1,17 @@
-import Script from "next/script";
-import useSWR from "swr";
-
-import LoadingSection from "@/components/content/loadingSection";
-import CountrySelection from "@/components/content/stats/countrySection";
-import CountSection from "@/components/content/stats/countSection";
-import DeviceSection from "@/components/content/stats/deviceSection";
-import HeaderSection from "@/components/content/stats/headerSection";
+import { API_URL } from "@/config/globals";
 import AnnouncementLayout from "@/components/layout/announcement";
+import CountSection from "@/components/content/stats/countSection";
+import CountrySelection from "@/components/content/stats/countrySection";
+import DeviceSection from "@/components/content/stats/deviceSection";
 import FooterLayout from "@/components/layout/footer";
 import GAdsense from "@/components/layout/gAdsenseBanner";
 import HeadLayout from "@/components/layout/head";
+import HeaderSection from "@/components/content/stats/headerSection";
+import LoadingSection from "@/components/content/loadingSection";
 import NavbarLayout from "@/components/layout/navbar";
+import Script from "next/script";
 import { fetcher } from "@/config/fetcher";
-import { API_URL } from "@/config/globals";
+import useSWR from "swr";
 
 const StatsPage = () => {
 	const { data } = useSWR<StatisticsJSON>(
@@ -38,17 +37,10 @@ const StatsPage = () => {
 				<HeaderSection />
 				{<CountSection statistics={data} />}
 			</div>
-			<GAdsense />
 			{data ? <DeviceSection statistics={data} /> : <LoadingSection />}
 			{data ? <CountrySelection statistics={data} /> : null}
-			<GAdsense />
 			<FooterLayout />
 			<Script src="/assets/js/stats/index.js" strategy="afterInteractive" />
-			<script
-				async
-				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7766514239546616"
-				crossOrigin="anonymous"
-			></script>
 		</HeadLayout>
 	);
 };
