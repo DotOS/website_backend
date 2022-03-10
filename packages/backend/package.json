@@ -4,7 +4,7 @@
 	"description": "Backend API for dotOS website",
 	"license": "GPL-3.0",
 	"main": "dist/index.js",
-	"author": "ririxidev <ririxi@droidontime.com>",
+	"author": "ririxidev <mail@ririxi.dev>",
 	"dependencies": {
 		"@octokit/core": "^3.5.1",
 		"@octokit/plugin-rest-endpoint-methods": "^5.9.0",

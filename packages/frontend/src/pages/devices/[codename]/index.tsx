@@ -1,22 +1,20 @@
-import { useRouter } from "next/router";
-import Script from "next/script";
-import useSWR from "swr";
-
+import { API_URL } from "@/config/globals";
+import AnnouncementLayout from "@/components/layout/announcement";
 import AutoCompleteSection from "@/components/content/devices/autoCompleteSection";
 import DeviceSection from "@/components/content/devices/deviceSection";
-import ListSection from "@/components/content/devices/listSection";
-import NoDeviceFound from "@/components/content/devices/noDeviceFound";
 import FailedSection from "@/components/content/failedSection";
-import LoadingSection from "@/components/content/loadingSection";
-import AnnouncementLayout from "@/components/layout/announcement";
 import FooterLayout from "@/components/layout/footer";
 import GAdsense from "@/components/layout/gAdsenseBanner";
 import HeadLayout from "@/components/layout/head";
+import ListSection from "@/components/content/devices/listSection";
 import LoadingPage from "@/components/layout/loading";
+import LoadingSection from "@/components/content/loadingSection";
 import NavbarLayout from "@/components/layout/navbar";
+import NoDeviceFound from "@/components/content/devices/noDeviceFound";
 import { fetcher } from "@/config/fetcher";
-import { API_URL } from "@/config/globals";
 import loadScript from "@/hooks/loadScript";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 
 const DeviceSpecificPage = () => {
 	const { query } = useRouter(),
