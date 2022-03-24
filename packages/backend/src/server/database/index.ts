@@ -1,14 +1,10 @@
 import { connect } from "mongoose";
-
 import { logger } from "../config";
 
 export default async function createDatabaseConnection(): Promise<void> {
 	try {
 		logger.extend("database")("Connecting to dotOS database");
 		await connect(process.env.MONGO_URI as string, {
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-			useFindAndModify: false,
 			serverSelectionTimeoutMS: 5000,
 			connectTimeoutMS: 5000
 		});
