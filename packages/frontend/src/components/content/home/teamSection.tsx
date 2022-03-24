@@ -1,10 +1,8 @@
-import useSWR from "swr";
-
+import { API_URL } from "@/config/globals";
+import FailedSection from "../failedSection";
 import UsersModal from "@/components/modals/modalUser";
 import { fetcher } from "@/config/fetcher";
-import { API_URL } from "@/config/globals";
-
-import FailedSection from "../failedSection";
+import useSWR from "swr";
 
 const TeamSection = () => {
 	const { data } = useSWR<TeamMembers>(
@@ -33,10 +31,10 @@ const TeamSection = () => {
 				id="team"
 				className="ml-4 lg:mx-20 md:mx-20 sm:mx-4 md:mb-20 lg:mb-20"
 			>
-				<h5 className="mx-2 uppercase tracking-widest font-normal text-l text-gray-900">
+				<h5 className="mx-2 uppercase tracking-widest font-normal text-l text-gray-900 dark:text-white">
 					Team
 				</h5>
-				<h1 className="mx-2 font-bold text-4xl text-gray-900">
+				<h1 className="mx-2 font-bold text-4xl text-gray-900 dark:text-white">
 					Meet our <span className="text-blue-500">team</span>
 				</h1>
 
@@ -53,6 +51,7 @@ const TeamSection = () => {
 						max-w-none
 						mr-4
 						bg-gray-100
+						dark:bg-gray-700
 						shadow
 						rounded-xl
 						overflow-hidden
@@ -97,7 +96,9 @@ const TeamSection = () => {
 											</a>
 										</div>
 
-										<p className="mt-2 text-sm text-gray-900">{member.role}</p>
+										<p className="mt-2 text-sm text-gray-900 dark:text-white">
+											{member.role}
+										</p>
 									</div>
 								</div>
 							</div>
@@ -111,6 +112,7 @@ const TeamSection = () => {
 					max-w-none
 					mr-4
 					bg-gray-100
+					dark:bg-gray-700
 					shadow
 					rounded-xl
 					overflow-hidden
@@ -149,7 +151,7 @@ const TeamSection = () => {
 										Honorable Mentions
 									</div>
 
-									<p className="mt-2 text-sm text-gray-900">
+									<p className="mt-2 text-sm text-gray-900 dark:text-white">
 										Click
 										<a
 											className="cursor-pointer text-blue-500 font-bold"

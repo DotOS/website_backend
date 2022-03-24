@@ -58,17 +58,18 @@ const UsersModal = (props: {
 					className="
 				inline-block
 				align-bottom
-				bg-white
 				rounded-lg
 				text-left
 				overflow-hidden
 				shadow-xl
 				transform
 				transition-all
+				bg-white
+				dark:bg-gray-700
 				sm:my-8 sm:align-middle max-w-sm w-full
 			"
 				>
-					<div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+					<div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 						<div className="sm:flex sm:items-start">
 							<div
 								className="
@@ -91,7 +92,7 @@ const UsersModal = (props: {
 							</div>
 							<div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
 								<h3
-									className="text-lg leading-6 font-medium text-gray-900"
+									className="text-lg leading-6 font-medium text-gray-900 dark:text-white"
 									id="modal-title"
 								>
 									Honorable Mentions
@@ -113,7 +114,7 @@ const UsersModal = (props: {
 							</div>
 						</div>
 					</div>
-					<div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+					<div className="bg-gray-50 dark:bg-gray-600 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
 						<button
 							type="button"
 							className="
@@ -126,11 +127,10 @@ const UsersModal = (props: {
 						shadow-sm
 						px-4
 						py-2
-						bg-white
 						text-base
 						font-medium
 						text-gray-700
-						hover:bg-gray-50
+						dark:text-white
 						focus:outline-none
 						focus:ring-2
 						focus:ring-offset-2

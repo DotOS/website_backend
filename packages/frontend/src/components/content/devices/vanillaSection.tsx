@@ -1,8 +1,6 @@
-import { ReactNode } from "react";
-
-import { getSize } from "@/util/getSize";
-
 import NoBuildsFound from "./noBuildsFound";
+import { ReactNode } from "react";
+import { getSize } from "@/util/getSize";
 
 const VanillaSection = (props: { vanillaDetails: MinimalisticDevice }) => {
 	const selectVanilla = (e: number) => {
@@ -40,9 +38,9 @@ const VanillaSection = (props: { vanillaDetails: MinimalisticDevice }) => {
 									rounded-md
 									px-4
 									py-4
-									bg-white
 									shadow-lg
-									text-gray-700 text-sm
+									text-gray-700 dark:text-white
+									text-sm
 									md:font-semibold
 									hover:bg-blue-500 hover:text-white
 									focus:outline-none
@@ -86,7 +84,6 @@ const VanillaSection = (props: { vanillaDetails: MinimalisticDevice }) => {
 									hidden
 									w-full
 									rounded-b-md
-									bg-white
 									ring-1 ring-black ring-opacity-5
 									detailsDropdown
 								"
@@ -94,7 +91,7 @@ const VanillaSection = (props: { vanillaDetails: MinimalisticDevice }) => {
 								<div className="flex flex-col shadow-lg">
 									<h1 className="text-blue-500 font-semibold p-4">
 										File Size:
-										<span className="text-gray-700">
+										<span className="text-gray-700 dark:text-white">
 											{" "}
 											{props.vanillaDetails.releases
 												? getSize(props.vanillaDetails.releases[index].size)
@@ -102,10 +99,10 @@ const VanillaSection = (props: { vanillaDetails: MinimalisticDevice }) => {
 										</span>
 									</h1>
 
-									<div className="flex flex-col mx-4 bg-gray-200 p-4">
+									<div className="flex flex-col mx-4 bg-gray-200 dark:bg-gray-700  p-4">
 										<p className="text-base text-blue-500">
 											Version:
-											<span className="text-gray-700">
+											<span className="text-gray-700 dark:text-white">
 												{" "}
 												{props.vanillaDetails.releases
 													? props.vanillaDetails.releases[index].version
@@ -114,7 +111,7 @@ const VanillaSection = (props: { vanillaDetails: MinimalisticDevice }) => {
 										</p>
 										<p className="text-base text-blue-500">
 											File name:
-											<span className="text-gray-700">
+											<span className="text-gray-700 dark:text-white">
 												{" "}
 												{props.vanillaDetails.releases
 													? props.vanillaDetails.releases[index].fileName
@@ -124,7 +121,7 @@ const VanillaSection = (props: { vanillaDetails: MinimalisticDevice }) => {
 
 										<p className="text-base text-blue-500">
 											File hash:
-											<span className="text-gray-700">
+											<span className="text-gray-700 dark:text-white">
 												{" "}
 												{props.vanillaDetails.releases
 													? props.vanillaDetails.releases[index].hash
@@ -136,7 +133,7 @@ const VanillaSection = (props: { vanillaDetails: MinimalisticDevice }) => {
 										props.vanillaDetails.releases[index].images ? (
 											<p className="text-base text-blue-500">
 												Images:
-												<span className="text-gray-700">
+												<span className="text-gray-700 dark:text-white">
 													{" "}
 													{props.vanillaDetails.releases[
 														index

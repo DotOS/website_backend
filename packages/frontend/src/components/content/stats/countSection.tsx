@@ -11,8 +11,9 @@ const CountSection = (props: { statistics?: StatisticsJSON }) => {
 						h-32
 						md:flex-col
 						lg:flex-col
-						bg-white
 						shadow-lg
+						dark:shadow-gray-800
+						dark:shadow-md
 						md:place-content-center
 						rounded-xl
 						mt-2
@@ -22,7 +23,9 @@ const CountSection = (props: { statistics?: StatisticsJSON }) => {
 						lg:h-36 lg:w-11/12
 					"
 			>
-				<p className="text-gray-600 uppercase text-center">Official</p>
+				<p className="text-gray-600 dark:text-white uppercase text-center">
+					Official
+				</p>
 				<h2 className="text-2xl font-bold text-blue-500 text-center">
 					{props.statistics
 						? props.statistics.buildCount.official
@@ -40,8 +43,9 @@ const CountSection = (props: { statistics?: StatisticsJSON }) => {
 						h-32
 						md:flex-col
 						lg:flex-col
-						bg-white
 						shadow-lg
+						dark:shadow-gray-800
+						dark:shadow-md
 						md:place-content-center
 						rounded-xl
 						mt-2
@@ -51,7 +55,9 @@ const CountSection = (props: { statistics?: StatisticsJSON }) => {
 						lg:h-36 lg:w-11/12
 					"
 			>
-				<p className="text-gray-600 uppercase text-center">Unofficial</p>
+				<p className="text-gray-600 dark:text-white uppercase text-center">
+					Unofficial
+				</p>
 				<h2 className="text-2xl font-bold text-blue-500 text-center">
 					{props.statistics
 						? props.statistics.buildCount.unofficial
@@ -68,8 +74,9 @@ const CountSection = (props: { statistics?: StatisticsJSON }) => {
 						h-32
 						md:flex-col
 						lg:flex-col
-						bg-white
 						shadow-lg
+						dark:shadow-gray-800
+						dark:shadow-md
 						md:place-content-center
 						rounded-xl
 						mt-2
@@ -79,7 +86,9 @@ const CountSection = (props: { statistics?: StatisticsJSON }) => {
 						lg:h-36 lg:w-11/12
 					"
 			>
-				<p className="text-gray-600 uppercase text-center">Devices</p>
+				<p className="text-gray-600 dark:text-white uppercase text-center">
+					Devices
+				</p>
 				<h2 className="text-2xl font-bold text-blue-500 text-center">
 					{props.statistics
 						? props.statistics.sortedJSONs.devices.length
@@ -97,8 +106,9 @@ const CountSection = (props: { statistics?: StatisticsJSON }) => {
 						h-32
 						md:flex-col
 						lg:flex-col
-						bg-white
 						shadow-lg
+						dark:shadow-gray-800
+						dark:shadow-md
 						md:place-content-center
 						rounded-xl
 						mt-2
@@ -108,7 +118,9 @@ const CountSection = (props: { statistics?: StatisticsJSON }) => {
 						lg:h-36 lg:w-11/12
 					"
 			>
-				<p className="text-gray-600 uppercase text-center">Total Installs</p>
+				<p className="text-gray-600 dark:text-white uppercase text-center">
+					Total Installs
+				</p>
 				<h2 className="text-2xl font-bold text-blue-500 text-center">
 					{props.statistics
 						? props.statistics.buildCount.official +

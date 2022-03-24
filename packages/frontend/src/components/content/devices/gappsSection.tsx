@@ -1,8 +1,6 @@
-import { ReactNode } from "react";
-
-import { getSize } from "@/util/getSize";
-
 import NoBuildsFound from "./noBuildsFound";
+import { ReactNode } from "react";
+import { getSize } from "@/util/getSize";
 
 const GappsSection = (props: { gappsDetails: MinimalisticDevice }) => {
 	const selectGapps = (e: number) => {
@@ -41,9 +39,9 @@ const GappsSection = (props: { gappsDetails: MinimalisticDevice }) => {
 									rounded-md
 									px-4
 									py-4
-									bg-white
 									shadow-lg
-									text-gray-700 text-sm
+									text-gray-700 dark:text-white
+									text-sm
 									md:font-semibold
 									hover:bg-blue-500 hover:text-white
 									focus:outline-none
@@ -87,14 +85,13 @@ const GappsSection = (props: { gappsDetails: MinimalisticDevice }) => {
 									hidden
 									w-full
 									rounded-b-md
-									bg-white
 									ring-1 ring-black ring-opacity-5
 								"
 								>
 									<div className="flex flex-col shadow-lg">
 										<h1 className="text-blue-500 font-semibold p-4">
 											File Size:
-											<span className="text-gray-700">
+											<span className="text-gray-700 dark:text-white">
 												{" "}
 												{props.gappsDetails.releases
 													? getSize(props.gappsDetails.releases[index].size)
@@ -102,10 +99,10 @@ const GappsSection = (props: { gappsDetails: MinimalisticDevice }) => {
 											</span>
 										</h1>
 
-										<div className="flex flex-col mx-4 bg-gray-200 p-4">
+										<div className="flex flex-col mx-4 bg-gray-200 dark:bg-gray-700 p-4">
 											<p className="text-base text-blue-500">
 												Version:
-												<span className="text-gray-700">
+												<span className="text-gray-700 dark:text-white">
 													{" "}
 													{props.gappsDetails.releases
 														? props.gappsDetails.releases[index].version
@@ -114,7 +111,7 @@ const GappsSection = (props: { gappsDetails: MinimalisticDevice }) => {
 											</p>
 											<p className="text-base text-blue-500">
 												File name:
-												<span className="text-gray-700">
+												<span className="text-gray-700 dark:text-white">
 													{" "}
 													{props.gappsDetails.releases
 														? props.gappsDetails.releases[index].fileName
@@ -124,7 +121,7 @@ const GappsSection = (props: { gappsDetails: MinimalisticDevice }) => {
 
 											<p className="text-base text-blue-500">
 												File hash:
-												<span className="text-gray-700">
+												<span className="text-gray-700 dark:text-white">
 													{" "}
 													{props.gappsDetails.releases
 														? props.gappsDetails.releases[index].hash
@@ -136,7 +133,7 @@ const GappsSection = (props: { gappsDetails: MinimalisticDevice }) => {
 											props.gappsDetails.releases[index].images ? (
 												<p className="text-base text-blue-500">
 													Images:
-													<span className="text-gray-700">
+													<span className="text-gray-700 dark:text-white">
 														{" "}
 														{props.gappsDetails.releases[
 															index

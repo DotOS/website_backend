@@ -1,14 +1,11 @@
+import { API_URL } from "@/config/globals";
+import GappsSection from "./gappsSection";
+import LoadingSection from "../loadingSection";
+import VanillaSection from "./vanillaSection";
+import { fetcher } from "@/config/fetcher";
+import loadScript from "@/hooks/loadScript";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-
-import { fetcher } from "@/config/fetcher";
-import { API_URL } from "@/config/globals";
-import loadScript from "@/hooks/loadScript";
-
-import LoadingSection from "../loadingSection";
-import DeviceImage from "./deviceImage";
-import GappsSection from "./gappsSection";
-import VanillaSection from "./vanillaSection";
 
 const DeviceSection = (props: { deviceInfo: Device }) => {
 	loadScript("/assets/js/devices/device.js");
@@ -57,7 +54,6 @@ const DeviceSection = (props: { deviceInfo: Device }) => {
 		<div
 			className="
 					md:mx-4
-					bg-white
 					shadow
 					w-full
 					md:w-10/12
@@ -81,7 +77,7 @@ const DeviceSection = (props: { deviceInfo: Device }) => {
 						className="bg-green-500 text-white py-2 px-4 rounded-full flex flex-col text-sm font-medium"
 						style={{ float: "right" }}
 					>
-						Active
+						Supported
 					</div>
 				)}
 				<div

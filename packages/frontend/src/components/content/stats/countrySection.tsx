@@ -13,7 +13,6 @@ const CountrySection = (props: { statistics: StatisticsJSON }) => (
 		<div className="mx-4 lg:mx-24 md:mx-12">
 			<table
 				className="
-						bg-white
 						shadow-xl
 						table-auto
 						w-full
@@ -24,7 +23,6 @@ const CountrySection = (props: { statistics: StatisticsJSON }) => (
 					<tr>
 						<th
 							className="
-									bg-white
 									text-gray-500
 									rounded-tl-xl
 									shadow
@@ -62,13 +60,13 @@ const CountrySection = (props: { statistics: StatisticsJSON }) => (
 						/>
 					))}
 					<tr className="shadow p-4">
-						<td className="sm:p-4 p-2 text-gray-500 font-medium text-">
+						<td className="sm:p-4 p-2 text-gray-500 dark:text-gray-300 font-medium text-">
 							{props.statistics.sortedJSONs.countries.length + 1}
 						</td>
 						<td className="p-2 sm:p-4 font-medium table-h-text">
 							Unknown installations
 						</td>
-						<td className="font-medium sm:p-4 p-2 text-blue-900">
+						<td className="font-medium sm:p-4 p-2 text-blue-900 dark:text-blue-500">
 							{props.statistics.unknownCount.countries}
 						</td>
 					</tr>

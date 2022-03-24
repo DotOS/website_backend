@@ -4,7 +4,6 @@ import DonateSection from "@/components/content/home/donateSection";
 import FaqSection from "@/components/content/home/faqSection";
 import FeaturesSection from "@/components/content/home/featuresSection";
 import FooterLayout from "@/components/layout/footer";
-import GAdsense from "@/components/layout/gAdsenseBanner";
 import HeadLayout from "@/components/layout/head";
 import NavbarLayout from "@/components/layout/navbar";
 import TeamSection from "@/components/content/home/teamSection";
@@ -69,13 +68,13 @@ const IndexPage = () => (
 				}
 			`}
 		</style>
-		<AnnouncementLayout />
-		<NavbarLayout />
-		<div
-			className="
+		<div className="dark:text-white dark:bg-gray-900 bg-white">
+			<AnnouncementLayout />
+			<NavbarLayout />
+			<div
+				className="
 				relative
 				px-4
-				bg-white
 				sm:mx-4
 				md:mx-20
 				lg:mx-20
@@ -86,15 +85,16 @@ const IndexPage = () => (
 				sm:grid-cols-1
 				pb-4
 			"
-		>
-			<WelcomeSection />
+			>
+				<WelcomeSection />
+			</div>
+			<FeaturesSection />
+			<AboutSection />
+			<TeamSection />
+			<FaqSection />
+			<DonateSection />
+			<FooterLayout />
 		</div>
-		<FeaturesSection />
-		<AboutSection />
-		<TeamSection />
-		<FaqSection />
-		<DonateSection />
-		<FooterLayout />
 	</HeadLayout>
 );
 

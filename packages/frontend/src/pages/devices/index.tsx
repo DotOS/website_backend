@@ -3,7 +3,6 @@ import AnnouncementLayout from "@/components/layout/announcement";
 import AutoCompleteSection from "@/components/content/devices/autoCompleteSection";
 import FailedSection from "@/components/content/failedSection";
 import FooterLayout from "@/components/layout/footer";
-import GAdsense from "@/components/layout/gAdsenseBanner";
 import HeadLayout from "@/components/layout/head";
 import InfoSection from "@/components/content/devices/infoSection";
 import ListSection from "@/components/content/devices/listSection";
@@ -20,10 +19,11 @@ const IndexPage = () => {
 
 	return (
 		<HeadLayout title="dotOS | Devices">
-			<AnnouncementLayout />
-			<NavbarLayout />
-			<div
-				className="
+			<div className="dark:bg-gray-900 dark:text-white">
+				<AnnouncementLayout />
+				<NavbarLayout />
+				<div
+					className="
 				flex flex-col
 				md:flex-row
 				justify-between
@@ -35,14 +35,14 @@ const IndexPage = () => {
 				font-normal
 				text-gray-700
 			"
-			>
-				<h3 className="hp1 text-2xl sm:text-2xl md:text-4xl mx-4 my-4 md:my-0 md:mx-0">
-					<span className="text-blue-500">dotOS downloads</span>
-				</h3>
-			</div>
-			{data ? <AutoCompleteSection /> : null}
-			<div
-				className={`${data ? "flex flex-col" : ""} p-4
+				>
+					<h3 className="hp1 text-2xl sm:text-2xl md:text-4xl mx-4 my-4 md:my-0 md:mx-0">
+						<span className="text-blue-500">dotOS downloads</span>
+					</h3>
+				</div>
+				{data ? <AutoCompleteSection /> : null}
+				<div
+					className={`${data ? "flex flex-col" : ""} p-4
 				md:mx-4
 				lg:mx-20
 				md:p-4
@@ -50,12 +50,13 @@ const IndexPage = () => {
 				md:flex-row
 				lg:flex-row
 				mb-20`}
-			>
-				{data ? <ListSection /> : <FailedSection page={true} />}
-				{data ? <InfoSection /> : null}
+				>
+					{data ? <ListSection /> : <FailedSection page={true} />}
+					{data ? <InfoSection /> : null}
+				</div>
+				<Script src="/assets/js/devices/index.js" />
+				<FooterLayout />
 			</div>
-			<Script src="/assets/js/devices/index.js" />
-			<FooterLayout />
 		</HeadLayout>
 	);
 };

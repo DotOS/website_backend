@@ -1,9 +1,7 @@
-import useSWR from "swr";
-
-import { fetcher } from "@/config/fetcher";
 import { API_URL } from "@/config/globals";
-
 import FailedSection from "../failedSection";
+import { fetcher } from "@/config/fetcher";
+import useSWR from "swr";
 
 const FaqSection = () => {
 	const { data } = useSWR<faqJSON[]>(`${API_URL}/api/website/getFAQ`, fetcher),
@@ -34,6 +32,7 @@ const FaqSection = () => {
 						font-bold
 						sm:text-4xl
 						text-gray-900
+						dark:text-white
 						md:text-5xl
 						lg:text-5xl
 						mt-4
@@ -51,7 +50,6 @@ const FaqSection = () => {
 				<div
 					className="
 					rounded-xl
-					bg-gray-100
 					p-4
 					m-0
 					lg:ml-16
@@ -71,7 +69,7 @@ const FaqSection = () => {
 										<h3 className="text-gray-500 font-medium text-left p-2">
 											#{index + 1}
 										</h3>
-										<h2 className="text-gray-500 text-base md:text-xl xl:text-2xl w-10/12">
+										<h2 className="text-gray-500 dark:text-white text-base md:text-xl xl:text-2xl w-10/12">
 											<span className="text-blue-500 font-bold">Q:</span>{" "}
 											{faqs[index].question}
 										</h2>
@@ -135,7 +133,7 @@ const FaqSection = () => {
 									<p
 										className={
 											(index + 1 >= 2 ? "hidden" : "") +
-											" pt-2 md:pt-3 lg:pt-5 text-gray-800 bg-gray-100 text-sm md:text-base xl:text-lg rounded-b-lg"
+											" pt-2 md:pt-3 lg:pt-5 text-gray-800 dark:text-white text-sm md:text-base xl:text-lg rounded-b-lg"
 										}
 										style={{ transition: "max-height 0.3s" }}
 										id={"question-text-" + index}

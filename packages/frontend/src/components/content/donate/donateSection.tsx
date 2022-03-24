@@ -15,7 +15,6 @@ const DonateSection = () => (
 					shadow-lg
 					flex flex-col
 					place-items-center
-					bg-white
 					w-72
 					h-72
 					rounded-xl
@@ -51,7 +50,6 @@ const DonateSection = () => (
 					shadow-lg
 					flex flex-col
 					place-items-center
-					bg-white
 					w-72
 					h-72
 					rounded-xl

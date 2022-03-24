@@ -1,8 +1,7 @@
-import Link from "next/link";
-import useSWR from "swr";
-
-import { fetcher } from "@/config/fetcher";
 import { API_URL } from "@/config/globals";
+import Link from "next/link";
+import { fetcher } from "@/config/fetcher";
+import useSWR from "swr";
 
 const ListSection = () => {
 	const { data } = useSWR(`${API_URL}/api/website/getDevices`, fetcher),
@@ -22,13 +21,13 @@ const ListSection = () => {
 		<div
 			className="
 					container
-					bg-white
 					rounded-xl
 					overflow-hidden
 					h-3/4
 					w-full
 					md:w-1/3
 					shadow
+					dark:shadow-gray-800
 				"
 			id="manufacturerList"
 		>
@@ -39,7 +38,6 @@ const ListSection = () => {
 						p-3
 						lg:p-4
 						md:flex
-						bg-white
 						md:cursor-default
 						cursor-pointer
 					"
@@ -65,7 +63,7 @@ const ListSection = () => {
 									rounded-md
 									px-4
 									py-4
-									text-gray-700 text-sm
+									text-gray-700 dark:text-white text-sm
 									font-semibold
 									hover:bg-blue-500 hover:text-white
 									focus:outline-none focus:ring-indigo-500
@@ -96,7 +94,6 @@ const ListSection = () => {
 								origin-top-right
 								w-full
 								rounded-b-md
-								bg-white
 								ring-1 ring-black ring-opacity-5
 								hidden
 							"

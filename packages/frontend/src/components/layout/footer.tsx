@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const FooterLayout = () => (
 	<>
-		<footer className="bg-gray-200 pt-10 md:px-20 lg:px-20 px-2 sm:px-2 pb-8 bottom-1">
+		<footer className="bg-gray-200 dark:bg-gray-800 pt-10 md:px-20 lg:px-20 px-2 sm:px-2 pb-8 bottom-1">
 			<Link href="/">
-				<a className="uppercase m-4 tracking-widest pointer text-gray-600 text-2xl">
+				<a className="uppercase m-4 tracking-widest pointer text-gray-600 dark:text-white text-2xl">
 					droidontime
 				</a>
 			</Link>
@@ -14,35 +14,34 @@ const FooterLayout = () => (
 			sm:grid-cols-2
 			md:grid-cols-2
 			lg:grid-cols-4
-			bg-gray-200
 			mx-2
 		"
 			>
 				<div className="flex flex-col my-2">
 					<Link href="/devices">
-						<a className="font-normal text-gray-600 text-l p-2 hover:text-blue-700">
+						<a className="font-normal text-gray-600 dark:text-white text-l p-2 hover:text-blue-700 dark:hover:text-blue-700">
 							Devices
 						</a>
 					</Link>
 					<a
-						className="font-normal text-gray-600 text-l p-2 hover:text-blue-700"
+						className="font-normal text-gray-600 dark:text-white text-l p-2 hover:text-blue-700 dark:hover:text-blue-700"
 						href="https://blog.droidontime.com/"
 						rel="noreferrer"
 					>
 						Blog
 					</a>
 					<Link href="/#team">
-						<a className="font-normal text-gray-600 text-l p-2 hover:text-blue-700">
+						<a className="font-normal text-gray-600 dark:text-white text-l p-2 hover:text-blue-700 dark:hover:text-blue-700">
 							Team
 						</a>
 					</Link>
 					<Link href="/donate">
-						<a className="font-normal text-gray-600 text-l p-2 hover:text-blue-700">
+						<a className="font-normal text-gray-600 dark:text-white text-l p-2 hover:text-blue-700 dark:hover:text-blue-700">
 							Donate
 						</a>
 					</Link>
 					<Link href="/contributors">
-						<a className="font-normal text-gray-600 text-l p-2 hover:text-blue-700">
+						<a className="font-normal text-gray-600 dark:text-white text-l p-2 hover:text-blue-700 dark:hover:text-blue-700">
 							Contributors
 						</a>
 					</Link>
@@ -52,7 +51,7 @@ const FooterLayout = () => (
 					<ul>
 						<li>
 							<Link href="/stats">
-								<a className="flex p-2 place-items-center hover:text-blue-700">
+								<a className="flex p-2 place-items-center dark:text-white hover:text-blue-700 dark:hover:text-blue-700">
 									<span>
 										<svg
 											className="mx-2"
@@ -75,7 +74,7 @@ const FooterLayout = () => (
 						</li>
 						<li>
 							<a
-								className="flex p-2 place-items-center hover:text-blue-700"
+								className="flex p-2 place-items-center dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
 								href="https://github.com/dotos"
 								rel="noreferrer"
 								target="_blank"
@@ -101,7 +100,7 @@ const FooterLayout = () => (
 						</li>
 						<li>
 							<a
-								className="flex p-2 place-items-center hover:text-blue-700"
+								className="flex p-2 place-items-center dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
 								href="https://review.droidontime.com/"
 								rel="noreferrer"
 								target="_blank"
@@ -140,7 +139,7 @@ const FooterLayout = () => (
 						</li>
 						<li>
 							<a
-								className="flex p-2 place-items-center hover:text-blue-700"
+								className="flex p-2 place-items-center dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
 								href="https://translations.droidontime.com/"
 								rel="noreferrer"
 								target="_blank"
@@ -168,7 +167,7 @@ const FooterLayout = () => (
 						</li>
 						<li>
 							<a
-								className="flex p-2 place-items-center hover:text-blue-700"
+								className="flex p-2 place-items-center dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
 								href="https://t.me/dotOSchannel"
 								rel="noreferrer"
 								target="_blank"
@@ -225,6 +224,7 @@ const FooterLayout = () => (
 			lg:text-xl
 			md:text-xl
 			text-gray-500
+			dark:text-red-100
 			mx-4
 			mt-4
 			flex flex-row

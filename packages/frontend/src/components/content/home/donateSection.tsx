@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const DonateSection = () => (
 	<>
-		<div className="grid bg-white h-full mt-10">
+		<div className="grid h-full mt-10">
 			<div
 				className="
 					flex
@@ -37,6 +37,7 @@ const DonateSection = () => (
 							text-4xl
 							font-semibold
 							text-gray-900 text-center
+							dark:text-white
 							md:text-left
 							lg:text-left
 						"
@@ -46,6 +47,7 @@ const DonateSection = () => (
 					<p
 						className="
 							text-xl text-gray-900
+							dark:text-white
 							flex-grow
 							text-center
 							md:text-left

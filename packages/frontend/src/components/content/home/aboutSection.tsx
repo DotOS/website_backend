@@ -3,7 +3,6 @@ const AboutSection = () => (
 		<section
 			className="
 				relative
-				bg-white
 				px-2
 				py-4
 				md:px-20
@@ -17,7 +16,7 @@ const AboutSection = () => (
 			"
 		>
 			<div className="col-span-2 place-self-center">
-				<h2 className="text-4xl text-gray-900 font-bold px-2 md:p-2 sm:p-0 lg:p-4">
+				<h2 className="text-4xl text-gray-900 dark:text-white font-bold px-2 md:p-2 sm:p-0 lg:p-4">
 					About dotOS
 				</h2>
 				<p

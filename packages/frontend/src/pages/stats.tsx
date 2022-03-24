@@ -4,7 +4,6 @@ import CountSection from "@/components/content/stats/countSection";
 import CountrySelection from "@/components/content/stats/countrySection";
 import DeviceSection from "@/components/content/stats/deviceSection";
 import FooterLayout from "@/components/layout/footer";
-import GAdsense from "@/components/layout/gAdsenseBanner";
 import HeadLayout from "@/components/layout/head";
 import HeaderSection from "@/components/content/stats/headerSection";
 import LoadingSection from "@/components/content/loadingSection";
@@ -21,10 +20,11 @@ const StatsPage = () => {
 
 	return (
 		<HeadLayout title="dotOS | Statistics">
-			<AnnouncementLayout />
-			<NavbarLayout />
-			<div
-				className="
+			<div className="dark:bg-gray-900 dark:text-white">
+				<AnnouncementLayout />
+				<NavbarLayout />
+				<div
+					className="
 				lg:px-24
 				px-4
 				md:px-10
@@ -33,14 +33,15 @@ const StatsPage = () => {
 				md:grid-cols-2
 				lg:grid-cols-2
 			"
-			>
-				<HeaderSection />
-				{<CountSection statistics={data} />}
+				>
+					<HeaderSection />
+					{<CountSection statistics={data} />}
+				</div>
+				{data ? <DeviceSection statistics={data} /> : <LoadingSection />}
+				{data ? <CountrySelection statistics={data} /> : null}
+				<FooterLayout />
+				<Script src="/assets/js/stats/index.js" strategy="afterInteractive" />
 			</div>
-			{data ? <DeviceSection statistics={data} /> : <LoadingSection />}
-			{data ? <CountrySelection statistics={data} /> : null}
-			<FooterLayout />
-			<Script src="/assets/js/stats/index.js" strategy="afterInteractive" />
 		</HeadLayout>
 	);
 };

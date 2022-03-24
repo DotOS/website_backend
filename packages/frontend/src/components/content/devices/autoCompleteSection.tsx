@@ -8,6 +8,7 @@ const AutoCompleteSection = () => (
 					py-4
 					px-6
 					text-gray-700
+					dark:bg-gray-700
 					leading-tight
 					shadow
 				"

@@ -4,6 +4,7 @@ const InfoSection = () => (
 			<p
 				className="
 							text-gray-800
+							dark:text-white
 							md:text-3xl
 							text-3xl
 							text-left
@@ -15,6 +16,7 @@ const InfoSection = () => (
 				<span
 					className="
 							text-gray-800
+							dark:text-white
 							md:text-xl
 							text-xl
 							text-left
@@ -31,6 +33,7 @@ const InfoSection = () => (
 							text-base
 							sm:text-base
 							text-gray-800
+							dark:text-white
 							text-left
 						"
 			>

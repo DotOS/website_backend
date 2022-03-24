@@ -8,6 +8,7 @@ const FeaturesSection = () => (
 						font-bold
 						sm:text-4xl
 						text-gray-900
+						dark:text-white
 						md:text-5xl
 						lg:text-5xl
 						mt-4
@@ -25,6 +26,7 @@ const FeaturesSection = () => (
 						grid grid-cols-1
 						rounded-xl
 						bg-gray-100
+						dark:bg-gray-800
 						p-4
 						m-0
 						lg:ml-16
@@ -44,12 +46,10 @@ const FeaturesSection = () => (
 							width="50"
 							height="50"
 						/>
-						<h5 className="pl-4 text-gray-800 font-bold">
-							Quick Settings redesign
-						</h5>
+						<h5 className="pl-4 font-bold">Quick Settings redesign</h5>
 						<p className="pl-11 md:pl-11 lg:pl-11">
-							We want to keep the tradition going and we have released yet another redesign 
-							of the most used menu on a phone.
+							We want to keep the tradition going and we have released yet
+							another redesign of the most used menu on a phone.
 						</p>
 					</div>
 
@@ -63,10 +63,11 @@ const FeaturesSection = () => (
 						/>
 						<h5 className="pl-4 font-bold">New way to personalize</h5>
 						<p className="pl-11 md:pl-11 lg:pl-11">
-							With the dotOS 5.0.0 release, we introduced a new app to personalize
-							your device called Customizations. You can now customize your
-							device with your own icons, wallpaper, colors, and more. This is a
-							great way to personalize your device. We hope you will enjoy it!
+							With the dotOS 5.0.0 release, we introduced a new app to
+							personalize your device called Customizations. You can now
+							customize your device with your own icons, wallpaper, colors, and
+							more. This is a great way to personalize your device. We hope you
+							will enjoy it!
 						</p>
 					</div>
 					<div className="features-list flex flex-row flex-wrap">

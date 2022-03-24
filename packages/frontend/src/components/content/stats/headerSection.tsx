@@ -15,7 +15,7 @@ const HeaderSection = () => (
 		>
 			Statistics
 		</h1>
-		<p className="text-gray-700 text-xl tracking-widest pb-6">
+		<p className="text-gray-700 dark:text-white text-xl tracking-widest pb-6">
 			Data since July 2018
 		</p>
 		<div className="flex flex-row">

@@ -4,7 +4,6 @@ import AutoCompleteSection from "@/components/content/devices/autoCompleteSectio
 import DeviceSection from "@/components/content/devices/deviceSection";
 import FailedSection from "@/components/content/failedSection";
 import FooterLayout from "@/components/layout/footer";
-import GAdsense from "@/components/layout/gAdsenseBanner";
 import HeadLayout from "@/components/layout/head";
 import ListSection from "@/components/content/devices/listSection";
 import LoadingPage from "@/components/layout/loading";
@@ -33,10 +32,11 @@ const DeviceSpecificPage = () => {
 
 	return codeName ? (
 		<HeadLayout title={`dotOS | ${codeName}`}>
-			<AnnouncementLayout />
-			<NavbarLayout />
-			<div
-				className="
+			<div className="dark:bg-gray-900 dark:text-white">
+				<AnnouncementLayout />
+				<NavbarLayout />
+				<div
+					className="
 				flex flex-col
 				md:flex-row
 				justify-between
@@ -48,16 +48,16 @@ const DeviceSpecificPage = () => {
 				font-normal
 				text-gray-700
 			"
-			>
-				<h3 className="hp1 text-2xl sm:text-2xl md:text-4xl mx-4 my-4 md:my-0 md:mx-0">
-					<span className="text-blue-500">
-						dotOS <span className="text-gray-500">|</span> {codeName}
-					</span>
-				</h3>
-			</div>
-			{pingData ? <AutoCompleteSection /> : null}
-			<div
-				className={`${pingData ? "flex flex-col" : ""} p-4
+				>
+					<h3 className="hp1 text-2xl sm:text-2xl md:text-4xl mx-4 my-4 md:my-0 md:mx-0">
+						<span className="text-blue-500">
+							dotOS <span className="text-gray-500">|</span> {codeName}
+						</span>
+					</h3>
+				</div>
+				{pingData ? <AutoCompleteSection /> : null}
+				<div
+					className={`${pingData ? "flex flex-col" : ""} p-4
 				md:mx-4
 				lg:mx-20
 				md:p-4
@@ -65,17 +65,18 @@ const DeviceSpecificPage = () => {
 				md:flex-row
 				lg:flex-row
 				mb-20`}
-			>
-				{pingData ? (
-					<ListSection />
-				) : typeof codeName === "undefined" ? (
-					<FailedSection page={true} />
-				) : (
-					<LoadingSection />
-				)}
-				{data ? <DeviceSection deviceInfo={data as Device} /> : null}
+				>
+					{pingData ? (
+						<ListSection />
+					) : typeof codeName === "undefined" ? (
+						<FailedSection page={true} />
+					) : (
+						<LoadingSection />
+					)}
+					{data ? <DeviceSection deviceInfo={data as Device} /> : null}
+				</div>
+				<FooterLayout />
 			</div>
-			<FooterLayout />
 		</HeadLayout>
 	) : (
 		<LoadingPage />
