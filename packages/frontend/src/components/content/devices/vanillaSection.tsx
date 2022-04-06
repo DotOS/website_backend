@@ -63,8 +63,42 @@ const VanillaSection = (props: { vanillaDetails: MinimalisticDevice }) => {
 										clipRule="evenodd"
 									/>
 								</svg>
+								{props.vanillaDetails.releases ? (
+									props.vanillaDetails.releases[index].version?.includes(
+										"beta".toLowerCase()
+									) ? (
+										<div
+											className="bg-yellow-500 text-white py-1 px-2 rounded-full text-xs font-small text-center mr-2"
+											style={{ float: "right" }}
+										>
+											BETA
+										</div>
+									) : (
+										<div
+											className="bg-green-500 text-white py-1 px-2 rounded-full text-xs font-small text-center mr-2"
+											style={{ float: "right" }}
+										>
+											Stable
+										</div>
+									)
+								) : null}
 								{props.vanillaDetails.releases
-									? `${props.vanillaDetails.releases[index].version} - ${
+									? `${
+											props.vanillaDetails.releases[index].version?.includes(
+												"beta".toLowerCase()
+											)
+												? props.vanillaDetails.releases[index].version.replace(
+														"-beta",
+														""
+												  )
+												: props.vanillaDetails.releases[index].version
+									  } ${
+											props.vanillaDetails.releases[index].version?.includes(
+												"BETA".toLowerCase()
+											)
+												? "- BETA"
+												: ""
+									  } - ${
 											props.vanillaDetails.releases[index].type
 												.charAt(0)
 												.toUpperCase() +

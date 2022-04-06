@@ -64,8 +64,42 @@ const GappsSection = (props: { gappsDetails: MinimalisticDevice }) => {
 											clipRule="evenodd"
 										/>
 									</svg>
+									{props.gappsDetails.releases ? (
+										props.gappsDetails.releases[index].version?.includes(
+											"beta".toLowerCase()
+										) ? (
+											<div
+												className="bg-yellow-500 text-white py-1 px-2 rounded-full text-xs font-small text-center mr-2"
+												style={{ float: "right" }}
+											>
+												BETA
+											</div>
+										) : (
+											<div
+												className="bg-green-500 text-white py-1 px-2 rounded-full text-xs font-small text-center mr-2"
+												style={{ float: "right" }}
+											>
+												Stable
+											</div>
+										)
+									) : null}
 									{props.gappsDetails.releases
-										? `${props.gappsDetails.releases[index].version} - ${
+										? `${
+												props.gappsDetails.releases[index].version?.includes(
+													"beta".toLowerCase()
+												)
+													? props.gappsDetails.releases[index].version.replace(
+															"-beta",
+															""
+													  )
+													: props.gappsDetails.releases[index].version
+										  } ${
+												props.gappsDetails.releases[index].version?.includes(
+													"BETA".toLowerCase()
+												)
+													? "- BETA"
+													: ""
+										  } - ${
 												props.gappsDetails.releases[index].type
 													.charAt(0)
 													.toUpperCase() +

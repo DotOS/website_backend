@@ -89,7 +89,7 @@ const DeviceSection = (props: { deviceInfo: Device }) => {
 					) : null}*/}
 					<p className="text-blue-500">
 						{props.deviceInfo.brandName}{" "}
-						<span className="text-neutral-100">
+						<span className="text-black dark:text-white">
 							{`${props.deviceInfo.deviceName} (${props.deviceInfo.codename})`}
 						</span>
 					</p>
