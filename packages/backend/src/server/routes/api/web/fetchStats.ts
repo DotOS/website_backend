@@ -1,8 +1,8 @@
-import axios from "axios";
 import { Request, Response } from "express";
 
-import { getFile } from "@/util/getFile";
 import { Octokit } from "@octokit/core";
+import axios from "axios";
+import { getFile } from "@/util/getFile";
 import { restEndpointMethods } from "@octokit/plugin-rest-endpoint-methods";
 
 export default class fetchStatsRoute {
@@ -50,17 +50,24 @@ export default class fetchStatsRoute {
 						deviceData = await getFile("devices", `${apiURL[5]}.json`);
 					try {
 						const response = await octokit.rest.repos.getReleaseByTag({
-							owner: "dotOS-downloads",
-							repo: deviceData.codename.toLowerCase(),
-							tag: apiURL[6] === "latest" ? deviceData.latestVersion : apiURL[6]
-						});
-
-						const file = response.data.assets.find(
-							asset =>
-								asset.name.includes(
-									apiURL[7] === "vanilla" ? "OFFICIAL" : "GAPPS"
-								) && asset.name.includes(".zip")
-						);
+								owner: "dotOS-downloads",
+								repo: deviceData.codename.toLowerCase(),
+								tag:
+									apiURL[6] === "latest" ? deviceData.latestVersion : apiURL[6]
+							}),
+							file =
+								response.data.assets.find(
+									asset =>
+										asset.name.includes(
+											apiURL[7] === "vanilla" ? "OFFICIAL" : "GAPPS"
+										) && asset.name.includes(".zip")
+								) ??
+								response.data.assets.find(
+									asset =>
+										asset.name.includes(
+											apiURL[7] === "vanilla" ? "VANILLA" : "GAPPS"
+										) && asset.name.includes(".zip")
+								);
 
 						if (!file) {
 							return res
