@@ -78,6 +78,20 @@ export default class downloadRoute {
 									return res.redirect(file.browser_download_url);
 								}
 								break;
+							case "vendor_boot":
+								{
+									const file = response.data.assets.find(
+										asset =>
+											asset.name.includes("vendor_boot") &&
+											(asset.name.includes("OFFICIAL") ||
+												asset.name.includes("VANILLA")) &&
+											asset.name.includes(".img")
+									);
+									if (!file) return notFound();
+
+									return res.redirect(file.browser_download_url);
+								}
+								break;
 							case "recovery":
 								{
 									const file = response.data.assets.find(
@@ -112,6 +126,19 @@ export default class downloadRoute {
 									const file = response.data.assets.find(
 										asset =>
 											asset.name.includes("boot") &&
+											asset.name.includes("GAPPS") &&
+											asset.name.includes(".img")
+									);
+									if (!file) return notFound();
+
+									return res.redirect(file.browser_download_url);
+								}
+								break;
+							case "vendor_boot":
+								{
+									const file = response.data.assets.find(
+										asset =>
+											asset.name.includes("vendor_boot") &&
 											asset.name.includes("GAPPS") &&
 											asset.name.includes(".img")
 									);
