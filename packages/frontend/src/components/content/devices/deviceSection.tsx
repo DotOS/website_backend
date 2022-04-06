@@ -87,9 +87,12 @@ const DeviceSection = (props: { deviceInfo: Device }) => {
 					{/*{!props.deviceInfo.deviceName.toLowerCase().includes("gsi") ? (
 						<DeviceImage deviceInfo={props.deviceInfo} />
 					) : null}*/}
-					<span className="text-blue-500">{props.deviceInfo.brandName}</span>
-					&nbsp;
-					{`${props.deviceInfo.deviceName} (${props.deviceInfo.codename})`}
+					<p className="text-blue-500">
+						{props.deviceInfo.brandName}{" "}
+						<span className="text-neutral-100">
+							{`${props.deviceInfo.deviceName} (${props.deviceInfo.codename})`}
+						</span>
+					</p>
 				</div>
 				<div className="text-sm md:text-md font-normal">
 					{props.deviceInfo.maintainerInfo?.name
