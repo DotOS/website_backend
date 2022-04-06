@@ -9,6 +9,7 @@ export const loggerMiddleware = (
 	res: Response,
 	next: NextFunction
 ): void => {
+	if (process.env.NODE_ENV === "production") return next();
 	res.on("finish", () => {
 		const formattedURL = new URL(
 			req.protocol + "://" + req.get("host") + req.originalUrl
