@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import { getFile } from "@/util/getFile";
 import { Octokit } from "@octokit/core";
+import { getFile } from "@/util/getFile";
 import { restEndpointMethods } from "@octokit/plugin-rest-endpoint-methods";
 
 export default class downloadRoute {
@@ -54,7 +54,9 @@ export default class downloadRoute {
 					{
 						const file = response.data.assets.find(
 							asset =>
-								asset.name.includes("OFFICIAL") && asset.name.includes(".zip")
+								(asset.name.includes("OFFICIAL") ||
+									asset.name.includes("VANILLA")) &&
+								asset.name.includes(".zip")
 						);
 						if (!file) return notFound();
 
@@ -67,7 +69,8 @@ export default class downloadRoute {
 									const file = response.data.assets.find(
 										asset =>
 											asset.name.includes("boot") &&
-											asset.name.includes("OFFICIAL") &&
+											(asset.name.includes("OFFICIAL") ||
+												asset.name.includes("VANILLA")) &&
 											asset.name.includes(".img")
 									);
 									if (!file) return notFound();
@@ -80,7 +83,8 @@ export default class downloadRoute {
 									const file = response.data.assets.find(
 										asset =>
 											asset.name.includes("recovery") &&
-											asset.name.includes("OFFICIAL") &&
+											(asset.name.includes("OFFICIAL") ||
+												asset.name.includes("VANILLA")) &&
 											asset.name.includes(".img")
 									);
 									if (!file) return notFound();
