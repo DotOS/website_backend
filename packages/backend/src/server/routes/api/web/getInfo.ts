@@ -131,7 +131,9 @@ export default class getInfoRoute {
 							const regionNames = new Intl.DisplayNames(["en"], {
 								type: "region"
 							});
-							fullCountryName = regionNames.of(countryShort.toUpperCase());
+							fullCountryName = regionNames.of(
+								countryShort.toUpperCase()
+							) as string;
 						} catch (err) {
 							unknownCountries += installationCount;
 							return;
