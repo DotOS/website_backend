@@ -12,7 +12,7 @@ const NoBuildsFound = () => (
 				</svg>
 			</div>
 			<div>
-				<p className="font-bold ">No builds found</p>
+				<p className="font-bold">No builds found</p>
 				<p className="text-sm">Please check back later.</p>
 			</div>
 		</div>

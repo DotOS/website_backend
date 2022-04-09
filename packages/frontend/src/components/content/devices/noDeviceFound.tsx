@@ -19,7 +19,7 @@ const NoDeviceFound = () => (
 					style={{ marginTop: "54px", marginBottom: "20px" }}
 				/>
 				<p className="text-2xl text-center dark:text-white">
-					Device that you are trying to find,
+					Device that you are trying to find
 					<br />
 					<b className="text-2xl text-blue-500 font-semibold">
 						doesn't exist in our database

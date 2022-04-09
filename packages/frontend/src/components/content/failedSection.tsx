@@ -11,7 +11,7 @@ const FailedSection = ({ page = false }: Props) => (
 			width="215"
 			height="215"
 		/>
-		<p className="text-base text-center">
+		<p className="text-base text-center dark:text-white">
 			We couldn't load this{" "}
 			<b className="text-base text-blue-500 font-semibold">
 				{page ? "page" : "section"}

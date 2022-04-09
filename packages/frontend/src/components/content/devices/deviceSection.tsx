@@ -96,7 +96,7 @@ const DeviceSection = (props: { deviceInfo: Device }) => {
 				</div>
 				<div className="text-sm md:text-md font-normal">
 					{props.deviceInfo.maintainerInfo?.name ? (
-						<p>
+						<p className="inline">
 							Maintained by{" "}
 							<a
 								href={props.deviceInfo.maintainerInfo.profileURL as string}
@@ -107,7 +107,7 @@ const DeviceSection = (props: { deviceInfo: Device }) => {
 							.
 						</p>
 					) : (
-						<p>
+						<p className="inline">
 							No maintainer. Apply{" "}
 							<a
 								className="text-blue-500"
