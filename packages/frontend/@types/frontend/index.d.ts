@@ -22,6 +22,12 @@ interface Device {
 	releases: Releases[] | null;
 	maintainerInfo: Maintainer;
 	links: Links;
+	deviceInformation: DeviceInformation | null;
+}
+interface DeviceInformation {
+	show: boolean;
+	message: string;
+	codeName: string;
 }
 interface MinimalisticDevice {
 	codename: string | string[];

@@ -95,18 +95,30 @@ const DeviceSection = (props: { deviceInfo: Device }) => {
 					</p>
 				</div>
 				<div className="text-sm md:text-md font-normal">
-					{props.deviceInfo.maintainerInfo?.name
-						? `Maintained by ${" "}`
-						: "No maintainer"}
 					{props.deviceInfo.maintainerInfo?.name ? (
-						<a
-							href={props.deviceInfo.maintainerInfo.profileURL as string}
-							className="text-sm md:text-md font-normal text-blue-500"
-						>
-							{props.deviceInfo.maintainerInfo.name}
-						</a>
-					) : null}
-					.{" "}
+						<p>
+							Maintained by{" "}
+							<a
+								href={props.deviceInfo.maintainerInfo.profileURL as string}
+								className="text-sm md:text-md font-normal text-blue-500"
+							>
+								{props.deviceInfo.maintainerInfo.name}
+							</a>
+							.
+						</p>
+					) : (
+						<p>
+							No maintainer. Apply{" "}
+							<a
+								className="text-blue-500"
+								href="https://blog.droidontime.com/blog/maintainership-form-dot5"
+								rel="noreferrer"
+							>
+								here
+							</a>
+							.
+						</p>
+					)}{" "}
 					{props.deviceInfo.links.xda ? (
 						<a
 							href={props.deviceInfo.links.xda as string}
@@ -127,6 +139,32 @@ const DeviceSection = (props: { deviceInfo: Device }) => {
 						</a>
 					) : null}
 				</div>
+				{props.deviceInfo.deviceInformation &&
+				props.deviceInfo.deviceInformation?.show ? (
+					<div
+						className="bg-gray-700 rounded-full text-white px-4 py-3 mt-3"
+						role="alert"
+					>
+						<div className="flex">
+							<div className="py-1">
+								<svg
+									width="30px"
+									className="fill-current h-6 w-6 text-black mr-4"
+									xmlns="https://www.w3.org/2000/svg"
+									viewBox="0 0 20 20"
+								>
+									<path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"></path>
+								</svg>
+							</div>
+							<div>
+								<p className="font-bold">Note about this device</p>
+								<p className="text-sm">
+									{props.deviceInfo.deviceInformation.message}
+								</p>
+							</div>
+						</div>
+					</div>
+				) : null}
 			</div>
 			<div
 				className="

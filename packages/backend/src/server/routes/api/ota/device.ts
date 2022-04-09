@@ -1,6 +1,7 @@
-import compareVersions from "compare-versions";
 import { Request, Response } from "express";
 
+import compareVersions from "compare-versions";
+import deviceAnnouncements from "@/models/deviceAnnouncements";
 import { getFile } from "@/util/getFile";
 
 interface Releases {
@@ -192,9 +193,12 @@ export default class otaDeviceRoute {
 		}
 
 		const deviceReleases = await getFile(
-			"devices",
-			`${req.params.codename}.json`
-		);
+				"devices",
+				`${req.params.codename}.json`
+			),
+			deviceInformation = await deviceAnnouncements.findOne({
+				codeName: deviceReleases.codename
+			});
 		if (!deviceReleases) {
 			return res
 				.status(404)
@@ -205,7 +209,12 @@ export default class otaDeviceRoute {
 				.end();
 		}
 
-		return res.json(deviceReleases).end();
+		const deviceInfos = {
+			...deviceReleases,
+			deviceInformation: deviceInformation
+		};
+
+		return res.json(deviceInfos).end();
 	}
 
 	async maintainerInfo(req: Request, res: Response): Promise<void> {
