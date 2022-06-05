@@ -35,13 +35,6 @@ export default class getInfoRoute {
 					return res.json(data).end();
 				}
 				break;
-			case "getContributors":
-				{
-					const data = await getFile("", "contributors.json");
-
-					return res.json(data).end();
-				}
-				break;
 			case "getFAQ":
 				{
 					const data = await faq.find({});

@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 
-import { logger } from "../config";
 import { getData } from "./getData";
+import { logger } from "../config";
 
 export const cacheFiles = async () => {
 	logger.extend("cache")("Caching files...");
@@ -10,7 +10,6 @@ export const cacheFiles = async () => {
 		if (!existsSync("./cache/devices")) mkdirSync("./cache/devices");
 
 		const devices = await getData("official_devices", "", "devices.json"),
-			contributors = await getData("website_api", "", "contributors.json"),
 			stats = await getData("website_api", "", "statistics.json"),
 			teams = await getData("website_api", "", "team.json"),
 			changelog = await getData(
@@ -37,10 +36,6 @@ export const cacheFiles = async () => {
 		await writeFileSync("./cache/statistics.json", JSON.stringify(stats));
 		await writeFileSync("./cache/team.json", JSON.stringify(teams));
 		await writeFileSync("./cache/changelog.json", JSON.stringify(changelog));
-		await writeFileSync(
-			"./cache/contributors.json",
-			JSON.stringify(contributors)
-		);
 
 		logger.extend("cache")("Successfully cached files");
 	} catch (error) {
