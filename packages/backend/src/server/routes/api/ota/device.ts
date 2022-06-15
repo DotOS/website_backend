@@ -193,12 +193,9 @@ export default class otaDeviceRoute {
 		}
 
 		const deviceReleases = await getFile(
-				"devices",
-				`${req.params.codename}.json`
-			),
-			deviceInformation = await deviceAnnouncements.findOne({
-				codeName: deviceReleases.codename
-			});
+			"devices",
+			`${req.params.codename}.json`
+		);
 		if (!deviceReleases) {
 			return res
 				.status(404)
@@ -209,10 +206,13 @@ export default class otaDeviceRoute {
 				.end();
 		}
 
-		const deviceInfos = {
-			...deviceReleases,
-			deviceInformation: deviceInformation
-		};
+		const deviceInformation = await deviceAnnouncements.findOne({
+				codeName: deviceReleases.codename
+			}),
+			deviceInfos = {
+				...deviceReleases,
+				deviceInformation: deviceInformation
+			};
 
 		return res.json(deviceInfos).end();
 	}
