@@ -255,10 +255,10 @@ const FooterLayout = () => (
 				&
 				<a
 					className="mx-1 text-blue-500"
-					href="https://github.com/ririxidev"
+					href="https://github.com/dotos"
 					target="_blank"
 				>
-					ririxi
+					dotOS
 				</a>
 			</p>
 			<p
